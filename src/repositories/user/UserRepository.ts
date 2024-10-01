@@ -60,19 +60,14 @@ export class UserRepository {
 
   async findUserByEmail(email: string) {
     try {
-      console.log("repository email -> ", email);
-
       const user = await prisma.user.findUnique({
         where: {
           email,
         },
       });
 
-      console.log("repository user -> ", user);
-
       return user;
     } catch (error: any) {
-      console.log("repository error -> ", error);
       throw new Error(error.message);
     }
   }

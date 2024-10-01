@@ -58,8 +58,6 @@ export class UserController {
         return;
       }
 
-      console.log("token -> ", token);
-
       res.status(200).json({ token });
     } catch (error: any) {
       res.status(500).json({ message: error.message });

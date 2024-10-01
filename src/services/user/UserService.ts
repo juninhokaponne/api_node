@@ -68,11 +68,8 @@ export class UserService {
   }
 
   async loginUser(email: string, password: string): Promise<string | null> {
-    console.log("email -> ", email);
-    console.log("password -> ", password);
     const user = await this.repository.findUserByEmail(email);
 
-    console.log("user -> ", user);
     if (!user) {
       return null;
     }
