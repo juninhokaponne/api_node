@@ -44,11 +44,53 @@ npm run test
 
 ## Documentação da API
 
+Todas as rotas necessitam de autenticação, para isso é necessário passar o token no header da requisição.
+
+A rota de cadastro e login de usuário não necessitam de token.
+
+```http
+  Authorization : Bearer <token>
+```
+
 #### Retorna todos os usuários
 
 ```http
   GET /localhost/api/users
 ```
+
+#### Retorna um usuário específico
+
+```http
+  GET /localhost/api/users/:id
+```
+
+#### Cria um usuário
+
+```http
+  POST /localhost/api/users
+```
+
+#### Atualiza um usuário
+
+```http
+  PUT /localhost/api/users/:id
+```
+
+#### Deleta um usuário
+
+```http
+  DELETE /localhost/api/users/:id
+```
+
+#### Retorna os filmes da api Swapi
+
+```http
+  GET /localhost/api/movies
+```
+
+## Variáveis de ambiente
+
+Há um arquivo .env.example na raiz do projeto, você pode copiar e colar o conteúdo dele em um arquivo .env e preencher as variáveis de ambiente.
 
 Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de ambiente no seu .env
 
