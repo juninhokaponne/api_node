@@ -1,9 +1,9 @@
 import { Router } from "express";
 
-import { UserController } from "@controllers/user/UserController";
-import { UserService } from "@services/user/UserService";
-import { UserRepository } from "@repositories/user/UserRepository";
-import { AuthMiddleware } from "@middlewares/index";
+import { UserController } from "../../controllers/user/UserController";
+import { UserService } from "../../services/user/UserService";
+import { UserRepository } from "../../repositories/user/UserRepository";
+import { AuthMiddleware } from "../../middlewares/index";
 
 const router = Router();
 

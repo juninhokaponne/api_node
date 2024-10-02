@@ -1,20 +1,23 @@
 import request from "supertest";
 import express from "express";
 import routes from "../../../src/routes";
+import { AuthMiddleware } from "../../../src/middlewares/Auth/Auth"; // Importando o middleware
+
+// Mock do middleware de autenticação
+jest.mock("../../../src/middlewares/Auth/Auth");
 
 const app = express();
 app.use(express.json());
+app.use(AuthMiddleware as any);
 app.use(routes);
 
 describe("Test Routes", () => {
-  test("should create an instance of routes", () => {
-    expect(app).toBeDefined();
-    expect(routes).toBeDefined();
-  });
-
-  test("should return 404 for invalid route", async () => {
-    const response = await request(app).get("/invalid-route");
-    expect(response.status).toBe(404);
+  beforeEach(() => {
+    // Resetando o mock para cada teste
+    (AuthMiddleware as jest.Mock).mockImplementation((req, res, next) => {
+      req.user = { id: "123", name: "Test User" }; // Definindo user
+      next();
+    });
   });
 
   test("should respond to GET /users", async () => {

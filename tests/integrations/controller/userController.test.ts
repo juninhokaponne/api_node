@@ -21,4 +21,59 @@ describe("Test UserController", () => {
     await controller.getUsers(req, res);
     expect(res.json).toHaveBeenCalledWith(expect.any(Array));
   });
+
+  test("should return an user", async () => {
+    const repository = new UserRepository();
+    const service = new UserService(repository);
+    const controller = new UserController(service);
+    const req = mockRequest({ params: { id: "1" } });
+    const res = mockResponse();
+    await controller.getUsers(req, res);
+    expect(res.json).toHaveBeenCalledWith(expect.any(Object));
+  });
+
+  test("should create an user", async () => {
+    const repository = new UserRepository();
+    const service = new UserService(repository);
+    const controller = new UserController(service);
+    const req = mockRequest({ body: { name: "Test User" } });
+    const res = mockResponse();
+    await controller.createUser(req, res);
+    expect(res.json).toHaveBeenCalledWith(expect.any(Object));
+  });
+
+  test("should update an user", async () => {
+    const repository = new UserRepository();
+    const service = new UserService(repository);
+    const controller = new UserController(service);
+
+    const req = mockRequest({
+      params: { id: "1" },
+      body: { name: "Test User" },
+    });
+    const res = mockResponse();
+    await controller.updateUser(req, res);
+    expect(res.json).toHaveBeenCalledWith(expect.any(Object));
+  });
+
+  test("should delete an user", async () => {
+    const repository = new UserRepository();
+    const service = new UserService(repository);
+    const controller = new UserController(service);
+    const req = mockRequest({ params: { id: "1" } });
+    const res = mockResponse();
+    await controller.deleteUser(req, res);
+    expect(res.json).toHaveBeenCalledWith(expect.any(Object));
+  });
+
+  test("should return an 404 status if id was not provided", async () => {
+    const repository = new UserRepository();
+    const service = new UserService(repository);
+    const controller = new UserController(service);
+
+    const req = mockRequest({ params: {} });
+    const res = mockResponse();
+    await controller.getUserById(req, res);
+    expect(res.status).toHaveBeenCalledWith(400);
+  });
 });

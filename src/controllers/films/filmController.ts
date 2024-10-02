@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { MovieService } from "@services/films/filmService";
+import { MovieService } from "../../services/films/filmService";
 
 export class MovieController {
   constructor(private service: MovieService) {}

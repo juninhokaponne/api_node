@@ -10,14 +10,6 @@
     "strict": true,
     "skipLibCheck": true,
     "typeRoots": ["./node_modules/@types", "./src/types"],
-    "paths": {
-      "@controllers/*": ["./src/controllers/*"],
-      "@services/*": ["./src/services/*"],
-      "@repositories/*": ["./src/repositories/*"],
-      "@entities/*": ["./src/entities/*"],
-      "@utils/*": ["./src/utils/*"],
-      "@middlewares/*": ["./src/middlewares/*"]
-    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]

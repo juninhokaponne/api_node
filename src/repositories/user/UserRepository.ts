@@ -1,5 +1,8 @@
 import { PrismaClient } from "@prisma/client";
-import { UserEntity, UserWithoutPassword } from "@entities/user/UserEntity";
+import {
+  UserEntity,
+  UserWithoutPassword,
+} from "../../entities/user/UserEntity";
 
 const prisma = new PrismaClient();
 

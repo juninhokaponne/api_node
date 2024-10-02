@@ -3,7 +3,7 @@ import routes from "./routes";
 import dotenv from "dotenv";
 import cors from "cors";
 import { ListEndpoints } from "./utils/ListEndpoints";
-import { ErrorHandlerMiddleware } from "@middlewares/index";
+import { ErrorHandlerMiddleware } from "./middlewares/index";
 
 dotenv.config();
 

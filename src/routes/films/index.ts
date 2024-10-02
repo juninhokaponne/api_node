@@ -1,7 +1,7 @@
 import { Router } from "express";
 
-import { MovieController } from "@controllers/films/filmController";
-import { MovieService } from "@services/films/filmService";
+import { MovieController } from "../../controllers/films/filmController";
+import { MovieService } from "../../services/films/filmService";
 
 const router = Router();
 
