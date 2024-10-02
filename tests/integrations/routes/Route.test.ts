@@ -1,9 +1,8 @@
 import request from "supertest";
 import express from "express";
 import routes from "../../../src/routes";
-import { AuthMiddleware } from "../../../src/middlewares/Auth/Auth"; // Importando o middleware
+import { AuthMiddleware } from "../../../src/middlewares/Auth/Auth";
 
-// Mock do middleware de autenticação
 jest.mock("../../../src/middlewares/Auth/Auth");
 
 const app = express();
@@ -13,9 +12,8 @@ app.use(routes);
 
 describe("Test Routes", () => {
   beforeEach(() => {
-    // Resetando o mock para cada teste
     (AuthMiddleware as jest.Mock).mockImplementation((req, res, next) => {
-      req.user = { id: "123", name: "Test User" }; // Definindo user
+      req.user = { id: "123", name: "Test User" };
       next();
     });
   });
