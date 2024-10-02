@@ -41,6 +41,14 @@ npm run dev
 ```
 npm run test
 ```
+## Produção
+
+Criei um enviroment de produção pelo Heroku para o back-end, você pode testar diretamente pela seguinte url
+
+Endpoint de cadastrar usuário:
+```
+https://api-node-prod-c6ef4b4f2eef.herokuapp.com/api/users
+```
 
 ## Documentação da API
 
