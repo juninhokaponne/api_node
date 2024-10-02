@@ -67,7 +67,7 @@ export class UserService {
     }
   }
 
-  async loginUser(email: string, password: string): Promise<string | null> {
+  async loginUser(email: string, password: string): Promise<any> {
     const user = await this.repository.findUserByEmail(email);
 
     if (!user) {
@@ -84,7 +84,7 @@ export class UserService {
       expiresIn: "1h",
     });
 
-    return token;
+    return { token, user };
   }
 
   async deleteUser(id: string) {
